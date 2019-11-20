@@ -13,7 +13,7 @@ function Input({ style, icon, ...rest }, ref) {
   );
 }
 
-Input.PropTypes = {
+Input.propTypes = {
   icon: PropTypes.string,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
