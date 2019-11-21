@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Image } from 'react-native';
 
 import logo from '~/assets/logo.png';
 
 import Background from '~/components/Background';
-import Input from '~/components/Input';
-import Button from '~/components/Button';
 
 import {
   Container,
@@ -17,6 +15,10 @@ import {
 } from './styles';
 
 export default function SignIn({ navigation }) {
+  const passwordRef = useRef();
+
+  const handleSubmit = () => {};
+
   return (
     <Background>
       <Container>
@@ -29,15 +31,20 @@ export default function SignIn({ navigation }) {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Digite seu e-mail"
+            returnKeyType="next"
+            onSubmitEditing={() => passwordRef.current.focus()}
           />
 
           <FormInput
             icon="lock-outline"
             secureTextEntry
             placeholder="Sua senha secreta"
+            ref={passwordRef}
+            returnKeyType="send"
+            onSubmitEditing={handleSubmit}
           />
 
-          <SubmitButton onPress={() => {}}>Acessar</SubmitButton>
+          <SubmitButton onPress={handleSubmit}>Acessar</SubmitButton>
         </Form>
 
         <SignLink onPress={() => navigation.navigate('SignUp')}>
