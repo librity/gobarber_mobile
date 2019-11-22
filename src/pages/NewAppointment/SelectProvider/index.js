@@ -1,13 +1,51 @@
-import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import api from '~/services/api';
+
 import Background from '~/components/Background';
+import { Container, ProviderList, Provider, Avatar, Name } from './styles';
 
-// import { Container } from './styles';
+export default function SelectProvider({ navigation }) {
+  const [providers, setProviders] = useState([]);
 
-export default function SelectProvider() {
-  return <Background />;
+  useEffect(() => {
+    const loadProviders = async () => {
+      const response = await api.get('providers');
+
+      setProviders(response.data);
+    };
+
+    loadProviders();
+  }, []);
+
+  return (
+    <Background>
+      <Container>
+        <ProviderList
+          data={providers}
+          keyExtractor={provider => String(provider.id)}
+          renderItem={({ item: provider }) => (
+            <Provider
+              onPress={() =>
+                navigation.navigate('SelectDateTime', { provider })
+              }
+            >
+              <Avatar
+                source={{
+                  uri: provider.avatar
+                    ? provider.avatar.url
+                    : `https://api.adorable.io/avatars/285/${provider.name}.png`,
+                }}
+              />
+              <Name>{provider.name}</Name>
+            </Provider>
+          )}
+        />
+      </Container>
+    </Background>
+  );
 }
 
 SelectProvider.navigationOptions = ({ navigation }) => ({
