@@ -18,6 +18,7 @@ import {
 
 export default function SignUp({ navigation }) {
   const dispatch = useDispatch();
+
   const emailRef = useRef();
   const passwordRef = useRef();
 
