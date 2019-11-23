@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { parseISO, formatRelative } from 'date-fns';
-import { pt } from 'date-fns/locale/pt';
+import ptBR from 'date-fns/locale/pt-BR';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -9,7 +9,7 @@ import { Container, Left, Avatar, Info, Name, Time } from './styles';
 export default function Appointment({ data, onCancellation }) {
   const parsedDate = useMemo(() => {
     return formatRelative(parseISO(data.date), new Date(), {
-      locale: pt,
+      locale: ptBR,
       addSuffix: true,
     });
   }, [data.date]);
