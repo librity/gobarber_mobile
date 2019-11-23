@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Alert } from 'react-native';
 import { formatRelative, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -25,7 +25,7 @@ export default function Confirm({ navigation }) {
     });
 
     navigation.navigate('SelectProvider');
-    navigation.navigate('Dashboard');
+    Alert.alert('Sucesso!', 'Agendamento cadastrado.');
   };
 
   return (
