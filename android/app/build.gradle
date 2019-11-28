@@ -128,7 +128,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.gobarber_front_end_mobile"
+        applicationId "com.GoBarber"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
