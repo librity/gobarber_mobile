@@ -38,6 +38,8 @@ target 'gobarber_front_end_mobile' do
 
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
 
+  pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
+
   target 'gobarber_front_end_mobileTests' do
     inherit! :search_paths
     # Pods for testing
