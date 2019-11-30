@@ -59,7 +59,7 @@ export default function SignIn({ navigation }) {
           />
 
           <SubmitButton loading={loading} onPress={handleSubmit}>
-            Acessar
+            Acessar !CodePushTest!
           </SubmitButton>
         </Form>
 
