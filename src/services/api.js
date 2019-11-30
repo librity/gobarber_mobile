@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://134.209.168.214',
+  baseURL: 'https://gog.net.br',
 });
 
 export default api;
